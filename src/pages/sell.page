@@ -1,0 +1,25 @@
+<apex:page showHeader="true" sidebar="true" standardController="Car__c" extensions="CarController">
+    <apex:pageMessages />
+    <apex:pageBlock title="Car Sell">
+        <apex:pageBlockSection >Are you sure you want to sell this car?</apex:pageBlockSection>
+        <apex:pageBlockSection title="Car Details">
+            <apex:outputText value="{!MyCar.Name}"/>
+            <apex:outputText value="{!MyCar.Brand}"/>
+            <apex:outputText value="{!MyCar.Fuel}"/>
+            <apex:outputText value="{!MyCar.Colour}"/>
+            <apex:outputText value="{!MyCar.LicenseNumber}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Car status">
+            <apex:outputText value="{!IF(MyCar.Sold,"SOLD", "AVAILABLE")}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Sell Price">
+            <apex:outputText value="{!MyCar.Price}"/>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+            <apex:form >
+                <apex:commandButton value="Accept" action="{!sell}"/> 
+                <apex:commandButton value="Cancel" action="{!goBack}"/> 
+            </apex:form>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:page>
